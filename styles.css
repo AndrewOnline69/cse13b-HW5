@@ -345,3 +345,31 @@ textarea {
 :root[data-theme="dark"] #form-error-summary h3 {
     color: #ffe1dc;
 }
+
+fact-panel {
+    --panel-background: var(--control-background, white);
+    --panel-text: var(--text-color, black);
+
+    display: block;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid currentColor;
+    border-radius: 8px;
+
+    background-color: var(--panel-background, white);
+    color: var(--panel-text, black);
+}
+
+fact-panel p {
+    margin: 0.75rem 0;
+}
+
+fact-panel [hidden] {
+    display: none;
+}
+
+fact-panel button:focus-visible,
+#toggle-mode:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+}
