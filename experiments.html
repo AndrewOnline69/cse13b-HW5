@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="HTML audio, video, canvas, and template demonstrations.">
+    <title>HTML Experiments</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Experiments</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html" >Home</a>
+            <a href="about.html" >About</a>
+            <a href="work.html" >Coursework</a>
+            <a href="interests.html" >Interests</a>
+            <a href="experiments.html" aria-current="page">Experiments</a>
+           <!-- <a href="contact.html">Contact</a> -->
+            <a href="form-no-js.html">Contact Form</a>
+            <a href="form-with-js.html">Contact Form (JS)</a>
+        </nav>
+
+        <button type="button" id="theme-toggle" hidden>
+            Switch to Dark Mode
+        </button>
+
+    </header>
+
+    <main>
+        <section>
+            <h2>HTML Experiments</h2>
+            <p>
+                This page demonstrates HTML elements that can be used on the webpage.
+                This includes drawing, audio, video, and templating.
+
+            </p>
+        </section>
+
+        <section>
+            <h2>Audio Demonstration</h2>
+            <p>An audio demostration showing off the audio player</p>
+
+            <audio controls>
+                <source src="media/Angel%20with%20a%20Shotgun.mp3" type="audio/mpeg">
+                Your browser does not support the audio player.
+                <a href="media/introduction.mp3">Download the recording</a>.
+            </audio>
+        </section>
+
+        <section>
+            <h2>Video Demonstration</h2>
+            <p>A video demostrating the video player.</p>
+            <p>Video: The color Red</p>
+
+            <video controls width="480">
+                <source src="media/Video%20Demo.mp4" type="video/mp4">
+                <track src="media/portfolio-tour.vtt"
+                       kind="captions"
+                       srclang="en"
+                       label="English"
+                       default>
+                Your browser does not support the video player.
+                <a href="media/Video Demo.mp4">Download the video</a>.
+            </video>
+        </section>
+
+        <section>
+            <h2>Canvas Demonstration</h2>
+            <p>
+                The canvas below uses a short script to draw
+                a blue rectangle.
+            </p>
+
+            <canvas id="drawing" width="300" height="150">
+                A blue rectangle drawn on a canvas.
+            </canvas>
+
+            <noscript>
+                <p>Enable JavaScript to display the canvas drawing.</p>
+            </noscript>
+
+            <h3>SVG Drawing</h3>
+                <p>
+                    Unlike the canvas drawing, this rectangle is described
+                    directly with SVG markup.
+                </p>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="300"
+                    height="150"
+                    viewBox="0 0 300 150"
+                    role="img"
+                    aria-labelledby="rectangle-title">
+                    <title id="rectangle-title">A blue rectangle drawn with SVG</title>
+                    <rect x="50" y="35" width="200" height="80" fill="blue"></rect>
+                </svg>
+        </section>
+
+        <section>
+            <h2>Template Demonstration</h2>
+            <p>
+                The HTML contains a template for a future project entry.
+                Its content remains hidden because templates are not
+                displayed until they are used by a script.
+            </p>
+
+            <template id="project-template">
+                <article>
+                    <h3>Project Title</h3>
+                    <p>A description of the project and what I learned.</p>
+                </article>
+            </template>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Andrew Santiago | <a href="contact.html">Contact me</a></p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("drawing");
+        const context = canvas.getContext("2d");
+        context.fillStyle = "blue";
+        context.fillRect(50, 35, 200, 80);
+    </script>
+
+    <hello-world></hello-world>
+
+    <script>
+        customElements.define("hello-world", class extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World!");
+         }
+        });
+    </script>
+</body>
+</html>
